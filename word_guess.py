@@ -13,7 +13,6 @@ def word():
 
 # Main game function
 def userChoice():
-
     count = 0
     gameWord = word()
     letterList = list(gameWord)
