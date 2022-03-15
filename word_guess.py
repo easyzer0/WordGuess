@@ -1,5 +1,6 @@
 import random
 
+# Pull a random word from words.txt file
 def word():
     with open("words.txt", "r") as words:
         lines = words.readlines()
@@ -10,7 +11,9 @@ def word():
     gameWord = random.choice(wordList)
     return gameWord
 
+# Main game function
 def userChoice():
+
     count = 0
     gameWord = word()
     letterList = list(gameWord)
@@ -48,13 +51,14 @@ def userChoice():
         if count > 4:
             print(f"Wrong. You ran out of tries! The answer was {gameWord.upper()}!")
             break
+    # Allow users the opportunity to play again
     playAgain = input("Play again? (y/n): ")
     if playAgain == "y":
         userChoice()
     else:
         quit()
 
-
+# Function to replace blanks with correctly guessed letters
 def replaceBlanks(blank, index, replacement):
     return "%s%s%s"%(blank[:index], replacement, blank[index+1:])
 
